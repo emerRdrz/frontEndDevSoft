@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-md-12">
+        <p>Ordenes Transporte</p>
+
+    <button routerLink="/nuevaorden" type="button" class="btn btn-success">Nueva orden</button>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th> 
+            <th scope="col">Numero de guía </th>
+            <th scope="col">Cantidad</th>           
+            <th scope="col">Precio Envío</th>
+            <th scope="col">Precio Descuento</th>
+            <th scope="col">Descuento %</th>
+            <th scope="col">Fecha de entrega</th>
+            <th scope="col">Borrar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let orden of ordenList">
+            <th>{{orden.idOrdenTransporte}}</th>
+            <th>{{orden.numeroGuia}}</th>
+            <td>{{orden.cantidadProducto}}</td>
+            <td>{{orden.precioEnvio}}</td>
+            <td>{{orden.precioDescuento}}</td>
+            <td>{{orden.porcentajeDescuento}}</td>
+            <td>{{orden.fechaEntrega}}</td>
+            <td>
+                <button (click)="delete(orden.idOrdenTransporte!)"  type="button" class="btn btn-danger">Borrar</button>
+            </td>
+          </tr>      
+        </tbody>
+      </table>
+    </div>
+</div>

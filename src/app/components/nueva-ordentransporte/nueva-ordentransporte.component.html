@@ -1,0 +1,87 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Nueva Orden</h4>
+                </div>
+
+                <div class="card-body">
+                    <form (submit)="agregar()" class="row g-3">
+
+                        <div class="col-md-6">
+                            <label for="tipoBodega" class="form-label">Forma de envío</label>
+                            <select id="tipoBodega" class="form-control form-select"
+                                name="tipoBodega" [(ngModel)]="tipoBodega" (change)="onChangeTipoBodega($event)">
+                              <option disabled>...Seleccione...</option>
+                              <option *ngFor="let tipoBodega of tipoBodegaList" [ngValue]="tipoBodega.idTipoBodega" >{{tipoBodega.descripcion}}</option>
+                            </select>
+                          </div>
+
+                          <div class="col-md-6">
+                            <label for="tipoProducto" class="form-label">Tipo de Producto</label>
+                            <select id="tipoProducto" class="form-control form-select"
+                                name="tipoProducto" [(ngModel)]="orden.tipoProducto">
+                              <option disabled>...Seleccione...</option>
+                              <option *ngFor="let tipoProducto of tipoProductoList" [ngValue]="tipoProducto.idTipoProducto" >{{tipoProducto.descripcion}}</option>
+                            </select>
+                          </div>
+
+                          <div class="col-md-6">
+                            <label for="cantidadProducto" class="form-label">Cantidad</label>
+                            <input type="number" class="form-control" id="cantidadProducto" name="cantidadProducto" [(ngModel)]="orden.cantidadProducto" min="1" max="10">
+                          </div>
+
+                          <div class="col-md-6">
+                            <label for="precioEnvio" class="form-label">Precio de Envío</label>
+                            <input type="number" class="form-control" id="precioEnvio" name="precioEnvio" [(ngModel)]="orden.precioEnvio">
+                          </div>
+                        
+                          <div class="col-6">
+                            <label for="fechaEntrega" class="form-label">Fecha Entrega</label>
+                            <input type="date" class="form-control" id="fechaEntrega" 
+                            name="fechaEntrega" [(ngModel)]="orden.fechaEntrega">
+                          </div>
+
+                          <div class="col-md-6">
+                            <label for="numeroGuia" class="form-label">Número de Guía</label>
+                            <input type="text" class="form-control" id="numeroGuia"  name="numeroGuia" [(ngModel)]="orden.numeroGuia">
+                          </div>
+
+                          <div class="col-md-6">
+                            <label for="placa" class="form-label">{{outcome}}</label>
+                            <input type="text" class="form-control" id="placa" name="placa" [(ngModel)]="orden.placa">
+                          </div>
+                          
+                          <div class="col-md-6">
+                            <label for="pais" class="form-label">País</label>
+                            <select id="pais" class="form-control form-select"
+                                name="pais" [(ngModel)]="pais"  (change)="onChange($event)">
+                              <option disabled>...Seleccione...</option>
+                              <option *ngFor="let pais of paisList" [ngValue]="pais.idPais" >{{pais.descripcion}}</option>
+                            </select>
+                          </div>
+                          
+                          <div class="col-md-6">
+                            <label for="bodega" class="form-label">Bodega</label>
+                            <select id="bodega" class="form-control form-select"
+                                name="bodega" [(ngModel)]="orden.bodega" >
+                              <option disabled>...Seleccione...</option>
+                              <option *ngFor="let bodega of bodegaList" [ngValue]="bodega.idBodega" >{{bodega.descripcion}}</option>
+                            </select>
+                          </div> 
+                          
+                          <br><br>
+                          <div class="col-12 mt-2">
+                            <button type="submit" class="btn btn-success ">Registrar</button>
+                          </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
